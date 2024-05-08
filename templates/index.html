@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Python Script</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            margin-top: 20px;
+            text-align: center;
+            position: relative; /* Ensure positioning of the button relative to the container */
+        }
+
+        h1 {
+            margin-bottom: 1px;
+            font-size: 29px;
+        }
+
+        #runButton {
+            position: absolute; /* Position the button absolutely within the container */
+            top: 50%; /* Align the button vertically centered */
+            left: 50%; /* Align the button horizontally centered */
+            transform: translate(-50%, -50%); /* Center the button perfectly */
+            background-color: #372f83;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #runButton:hover {
+            background-color: #a09245;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Wrap both the image and the button inside a container -->
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">DRIVER DROWSINESS AND SEATBELT DETECTION USING DEEP LEARNING TECHNIQUES</h1>
+        <div onclick="runScript()">
+            <!-- Replace the image source with a direct link to the image -->
+            <img src="static/a.jpg" height="750" width="2000" alt="Description of the image">
+            <!-- Run Script button -->
+            <button id="runButton">Run Script</button>
+        </div>
+    </div>
+        
+    <script>
+        function runScript() {
+            // Simulate click event on the runButton when the container is clicked
+            document.getElementById('runButton').click();
+        }
+        
+        document.getElementById('runButton').addEventListener('click', function() {
+            fetch('/run_script', {
+                method: 'POST',
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
